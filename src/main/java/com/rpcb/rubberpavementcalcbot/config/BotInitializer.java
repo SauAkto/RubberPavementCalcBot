@@ -1,6 +1,10 @@
 package com.rpcb.rubberpavementcalcbot.config;
 
 import com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot;
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> 8d4367b (initial commit)
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -10,6 +14,10 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 @Component
+<<<<<<< HEAD
+=======
+@Slf4j
+>>>>>>> 8d4367b (initial commit)
 public class BotInitializer {
 
     @Autowired
@@ -21,7 +29,11 @@ public class BotInitializer {
         try{
             telegramBotsApi.registerBot(bot);
         }catch (TelegramApiException e){
+<<<<<<< HEAD
 
+=======
+            log.error("Error occurred: " + e.getMessage());
+>>>>>>> 8d4367b (initial commit)
         }
     }
 }
