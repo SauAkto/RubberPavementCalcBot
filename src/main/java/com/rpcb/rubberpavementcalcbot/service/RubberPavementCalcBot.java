@@ -2,9 +2,13 @@ package com.rpcb.rubberpavementcalcbot.service;
 
 import com.rpcb.rubberpavementcalcbot.config.BotConfig;
 
+import com.rpcb.rubberpavementcalcbot.model.User;
+import com.rpcb.rubberpavementcalcbot.model.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +16,7 @@ import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +25,9 @@ import java.util.List;
 public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
     final BotConfig config;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public RubberPavementCalcBot(BotConfig config) {
         this.config = config;
@@ -47,6 +55,7 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
             switch (messageText){
                 case "/start":
+                    registeredUser(update.getMessage(), update.getMessage().getChat().getFirstName());
                     startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
                     break;
                 case "/help":
@@ -55,6 +64,25 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
                 default: sendMessage(chatId, "Sorry, command was not recognized.");
             }
         }
+    }
+
+    private void registeredUser(Message msg, String userName) {
+
+        if(userRepository.findById(msg.getChatId()).isEmpty()){
+
+            var chatId = msg.getChatId();
+            var chat = msg.getChat();
+
+            User user = new User();
+
+            user.setChatId(chatId);
+            user.setUserName(userName);
+            user.setTimeregstered(new Timestamp(System.currentTimeMillis()));
+
+            userRepository.save(user);
+            log.info("user saved: " + userName);
+        }
+
     }
 
     private void startCommandReceived(long chatId, String nameFirst){
