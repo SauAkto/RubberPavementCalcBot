@@ -16,6 +16,8 @@
     <properties>
         <java.version>11</java.version>
         <telegram.version>5.6.0</telegram.version>
+        <vdurmont.version>5.1.1</vdurmont.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -23,6 +25,11 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+            <version>${vdurmont.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
