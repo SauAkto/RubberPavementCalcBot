@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import lombok.extern.slf4j.Slf4j;
@@ -62,11 +65,112 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
                     registeredUser(update.getMessage(), update.getMessage().getChat().getFirstName());
                     startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
                     break;
+
                 case "/help":
                     sendMessage(chatId, HELP_TEXT);
                     break;
+
+                case "/price":
+                    price(chatId);
+                    break;
+
+                case "/calcPavment":
+                    calcPavment(chatId);
+                    break;
+
+                case "/calendar":
+                    break;
+
+                case "/price update":
+                    break;
+
+                case "/consumption update":
+                    break;
+
+                case "/calcValut":
+                    break;
+
                 default: sendMessage(chatId, "Sorry, command was not recognized.");
             }
+        }else if(update.hasCallbackQuery()){
+            callbackPrice(update);
+
+        }
+    }
+
+    private void calcPavment(long chatId) {
+    }
+
+    private void callbackPrice(Update update) {
+
+        String callbackData = update.getCallbackQuery().getData();
+        long messageId = update.getCallbackQuery().getMessage().getMessageId();
+        long chatId = update.getCallbackQuery().getMessage().getChatId();
+        EditMessageText message = new EditMessageText();// подменем текст сообщени после нажатия кнопки
+
+        String text = "";
+
+        if(callbackData.equals(BINDER)){
+            text = "Прайс лист, связующее:";
+            message.setChatId(String.valueOf(chatId));
+            message.setText(text);
+            message.setMessageId((int)messageId);
+
+        }else if(callbackData.equals(EPDM)){
+            text = "Прайс лист, EPDM:";
+            message.setChatId(String.valueOf(chatId));
+            message.setText(text);
+            message.setMessageId((int)messageId);
+
+        }else{
+            text = "Прайс лист, CSBR:";
+            message.setChatId(String.valueOf(chatId));
+            message.setText(text);
+            message.setMessageId((int)messageId);
+        }
+        try{
+            execute(message);
+        } catch (TelegramApiException e){
+
+            log.error("Error occurred: " + e.getMessage());
+        }
+    }
+
+    private void price(Long chatId) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(String.valueOf(chatId));
+        sendMessage.setText("Какой прайс тебе показать?");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> row = new ArrayList<>();
+
+        var buttonBinder = new InlineKeyboardButton();
+        buttonBinder.setText("Связующее");
+        buttonBinder.setCallbackData(BINDER);
+
+        var buttonEPDM = new InlineKeyboardButton();
+        buttonEPDM.setText("EPDM");
+        buttonEPDM.setCallbackData(EPDM);
+
+        var buttonCSBR = new InlineKeyboardButton();
+        buttonCSBR.setText("colorSBR");
+        buttonCSBR.setCallbackData(CSBR);
+
+        row.add(buttonBinder);
+        row.add(buttonEPDM);
+        row.add(buttonCSBR);
+
+        rowsInline.add(row);
+
+        markupInline.setKeyboard(rowsInline);
+        sendMessage.setReplyMarkup(markupInline);
+
+        try{
+            execute(sendMessage);
+        } catch (TelegramApiException e){
+
+            log.error("Error occurred: " + e.getMessage());
         }
     }
 
@@ -93,9 +197,7 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
         String answer = EmojiParser.parseToUnicode("Привет " + nameFirst+ "! Тебя приветствует помощник!"+ ":sunglasses:" +" Я буду за тебя считать то, что тебе посчитать самостоятельно лень.");
 
-      //  String answer = "Привет " + nameFirst+ "! Тебя приветствует помощник! Я буду за тебя считать то, что тебе посчитать самостоятельно лень.";
-
-        log.info("Raplied to user " + nameFirst);
+           log.info("Raplied to user " + nameFirst);
         sendMessage(chatId, answer);
 
     }
@@ -133,6 +235,10 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
             " пункт /price отправит Вас посмотреть текущие цены на материал\n\n"+
             " пункт /calcPavment перенесет в калькулятор покрытий\n\n"+
             " и т.д.";
+
+    static final String BINDER = "BINDER";
+    static final String EPDM = "EPDM";
+    static final String CSBR = "CSBR";
 
     public void keyboardMarkupMetod(long chatId){
         SendMessage message = new SendMessage();
