@@ -93,20 +93,92 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
                 default: sendMessage(chatId, "Sorry, command was not recognized.");
             }
         }else if(update.hasCallbackQuery()){
-            callbackPrice(update);
-
+            String callbackMethod = update.getCallbackQuery().getData();
+            if(callbackMethod.equals(BINDER) || callbackMethod.equals(EPDM) || callbackMethod.equals(CSBR) ){
+                callbackPrice(update);
+            }else if(callbackMethod.equals(COVER_STANDART)
+                    || callbackMethod.equals(COVER_SENDVICH_STANDART)
+                    || callbackMethod.equals(COVER_EPDM)
+                    || callbackMethod.equals(COVER_SENDVICH_EPDM)
+                    || callbackMethod.equals(COVER_SPRAY)
+                    || callbackMethod.equals(COVER_TERRA)){
+                calcCover(update);
+            }
         }
     }
 
+    private void calcCover(Update update) {
+
+        String callbackData = update.getCallbackQuery().getData();
+        long chatId = update.getCallbackQuery().getMessage().getChatId();
+
+    }
+
     private void calcPavment(long chatId) {
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatId));
+        message.setText("Выбери тип покрытия для расчета!");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> row = new ArrayList<>();
+
+        var buttonStandart = new InlineKeyboardButton();
+        buttonStandart.setText("Стандартное покрытие");
+        buttonStandart.setCallbackData(COVER_STANDART);
+
+        var buttonSendvichSrandart = new InlineKeyboardButton();
+        buttonSendvichSrandart.setText("Сендвич стандарт");
+        buttonSendvichSrandart.setCallbackData(COVER_SENDVICH_STANDART);
+
+        row.add(buttonStandart);
+        row.add(buttonSendvichSrandart);
+        rowsInline.add(row); //первая линия кнопок
+
+        List<InlineKeyboardButton> row2 = new ArrayList<>();
+        var buttonEPDM = new InlineKeyboardButton();
+        buttonEPDM.setText("Покрытие EPDM");
+        buttonEPDM.setCallbackData(COVER_EPDM);
+
+        var buttonSendvichEPDM = new InlineKeyboardButton();
+        buttonSendvichEPDM.setText("Сендвич EPDM");
+        buttonSendvichEPDM.setCallbackData(COVER_SENDVICH_EPDM);
+
+        row2.add(buttonEPDM);
+        row2.add(buttonSendvichEPDM);
+        rowsInline.add(row2);
+
+        List<InlineKeyboardButton> row3 = new ArrayList<>();
+
+        var buttonSpray = new InlineKeyboardButton();
+        buttonSpray.setText("Спрей покрытие");
+        buttonSpray.setCallbackData(COVER_SPRAY);
+
+        var buttonTerra = new InlineKeyboardButton();
+        buttonTerra.setText("Каменное покрытие");
+        buttonTerra.setCallbackData(COVER_TERRA);
+
+        row3.add(buttonSpray);
+        row3.add(buttonTerra);
+        rowsInline.add(row3);
+
+        markupInline.setKeyboard(rowsInline);
+        message.setReplyMarkup(markupInline);
+
+        try{
+            execute(message);
+        } catch (TelegramApiException e){
+
+            log.error("Error occurred: " + e.getMessage());
+        }
+
     }
 
     private void callbackPrice(Update update) {
 
         String callbackData = update.getCallbackQuery().getData();
-        long messageId = update.getCallbackQuery().getMessage().getMessageId();
         long chatId = update.getCallbackQuery().getMessage().getChatId();
-        EditMessageText message = new EditMessageText();// подменем текст сообщени после нажатия кнопки
+        SendMessage message = new SendMessage();// подменем текст сообщени после нажатия кнопки
 
         String text = "";
 
@@ -114,19 +186,16 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
             text = "Прайс лист, связующее:";
             message.setChatId(String.valueOf(chatId));
             message.setText(text);
-            message.setMessageId((int)messageId);
 
         }else if(callbackData.equals(EPDM)){
             text = "Прайс лист, EPDM:";
             message.setChatId(String.valueOf(chatId));
             message.setText(text);
-            message.setMessageId((int)messageId);
 
         }else{
             text = "Прайс лист, CSBR:";
             message.setChatId(String.valueOf(chatId));
             message.setText(text);
-            message.setMessageId((int)messageId);
         }
         try{
             execute(message);
@@ -239,11 +308,19 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
     static final String BINDER = "BINDER";
     static final String EPDM = "EPDM";
     static final String CSBR = "CSBR";
+    static final String COVER_STANDART = "COVER_STANDART";
+    static final String COVER_SENDVICH_STANDART = "COVER_SENDVICH_STANDART";
+    static final String COVER_EPDM = "COVER_EPDM";
+    static final String COVER_SENDVICH_EPDM = "COVER_SENDVICH_EPDM";
+    static final String COVER_TERRA = "COVER_TERRA";
+    static final String COVER_SPRAY = "COVER_SPRAY";
 
-    public void keyboardMarkupMetod(long chatId){
+    public void keyboardMarkupMetod(long chatId){ //экранная клавиатура
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true); //подгоняем размер
+        keyboardMarkup.setOneTimeKeyboard(true); // скрываем после использования
 
         List<KeyboardRow> keyboardRows = new ArrayList<>();
 
