@@ -1,5 +1,6 @@
 package com.rpcb.rubberpavementcalcbot.service;
 
+import com.rpcb.rubberpavementcalcbot.botmenu.BotMenuCommands;
 import com.rpcb.rubberpavementcalcbot.config.BotConfig;
 
 import com.rpcb.rubberpavementcalcbot.model.User;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -26,6 +26,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.rpcb.rubberpavementcalcbot.constant.VarConst.*;
+
 @Slf4j
 @Component
 public class RubberPavementCalcBot extends TelegramLongPollingBot {
@@ -38,16 +40,10 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
     public RubberPavementCalcBot(BotConfig config) {
         this.config = config;
 
-        List<BotCommand> listofCommands = new ArrayList<>();//пишем списко команд для меню
-        listofCommands.add(new BotCommand("/price", "Прайс листы"));
-        listofCommands.add(new BotCommand("/calcPavment", "Расчет покрытий"));
-        listofCommands.add(new BotCommand("/calendar", "Список дел"));
-        listofCommands.add(new BotCommand("/price update", "Редктирование прайс листов"));
-        listofCommands.add(new BotCommand("/consumption update", "Редактирование расхода материала"));
-        listofCommands.add(new BotCommand("/help", "Описание функционала"));
-        listofCommands.add(new BotCommand("/calcValut", "Калькулятор валют"));
+        BotMenuCommands botMenu = new BotMenuCommands();
         try{
-            this.execute(new SetMyCommands(listofCommands, new BotCommandScopeDefault(), null));
+            //добавлем сови пункты в меню
+            this.execute(new SetMyCommands(botMenu.botMenuCommands(), new BotCommandScopeDefault(), null));
         }catch (TelegramApiException e){
             log.error("Error setting bot`s command list: " + e.getMessage());
         }
@@ -112,6 +108,12 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
         String callbackData = update.getCallbackQuery().getData();
         long chatId = update.getCallbackQuery().getMessage().getChatId();
 
+        SendMessage message = new SendMessage();
+        message.setText("Set message:");
+        message.setChatId(String.valueOf(chatId));
+
+        executeMet(message);
+
     }
 
     private void calcPavment(long chatId) {
@@ -165,20 +167,14 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
 
-        try{
-            execute(message);
-        } catch (TelegramApiException e){
-
-            log.error("Error occurred: " + e.getMessage());
-        }
-
+        executeMet(message);
     }
 
     private void callbackPrice(Update update) {
 
         String callbackData = update.getCallbackQuery().getData();
         long chatId = update.getCallbackQuery().getMessage().getChatId();
-        SendMessage message = new SendMessage();// подменем текст сообщени после нажатия кнопки
+        SendMessage message = new SendMessage();
 
         String text = "";
 
@@ -197,12 +193,7 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
             message.setChatId(String.valueOf(chatId));
             message.setText(text);
         }
-        try{
-            execute(message);
-        } catch (TelegramApiException e){
-
-            log.error("Error occurred: " + e.getMessage());
-        }
+        executeMet(message);
     }
 
     private void price(Long chatId) {
@@ -235,12 +226,7 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
         markupInline.setKeyboard(rowsInline);
         sendMessage.setReplyMarkup(markupInline);
 
-        try{
-            execute(sendMessage);
-        } catch (TelegramApiException e){
-
-            log.error("Error occurred: " + e.getMessage());
-        }
+        executeMet(sendMessage);
     }
 
     private void registeredUser(Message msg, String userName) {
@@ -279,48 +265,16 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
         // создание клавиатуры
         keyboardMarkupMetod(chatId);
 
-        try{
-            execute(message);
-        } catch (TelegramApiException e){
-
-            log.error("Error occurred: " + e.getMessage());
-        }
-
+        executeMet(message);
     }
-
-    @Override
-    public String getBotUsername() {
-        return config.getBotName();
-    }
-
-    @Override
-    public String getBotToken() {
-        return config.getBotToken();
-    }
-
-
-
-    static final String HELP_TEXT = "Тут будет пояснительная записка для тех кому лень потыкать кнопочки\n\n"+
-            " пункт /price отправит Вас посмотреть текущие цены на материал\n\n"+
-            " пункт /calcPavment перенесет в калькулятор покрытий\n\n"+
-            " и т.д.";
-
-    static final String BINDER = "BINDER";
-    static final String EPDM = "EPDM";
-    static final String CSBR = "CSBR";
-    static final String COVER_STANDART = "COVER_STANDART";
-    static final String COVER_SENDVICH_STANDART = "COVER_SENDVICH_STANDART";
-    static final String COVER_EPDM = "COVER_EPDM";
-    static final String COVER_SENDVICH_EPDM = "COVER_SENDVICH_EPDM";
-    static final String COVER_TERRA = "COVER_TERRA";
-    static final String COVER_SPRAY = "COVER_SPRAY";
 
     public void keyboardMarkupMetod(long chatId){ //экранная клавиатура
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         keyboardMarkup.setResizeKeyboard(true); //подгоняем размер
-        keyboardMarkup.setOneTimeKeyboard(true); // скрываем после использования
+        keyboardMarkup.setOneTimeKeyboard(false); // скрываем после использования
+        keyboardMarkup.setSelective(false);
 
         List<KeyboardRow> keyboardRows = new ArrayList<>();
 
@@ -344,5 +298,25 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
         message.setReplyMarkup(keyboardMarkup);
     }
+
+    @Override
+    public String getBotUsername() {
+        return config.getBotName();
+    }
+
+    @Override
+    public String getBotToken() {
+        return config.getBotToken();
+    }
+
+    public void executeMet(SendMessage message){
+        try{
+            execute(message);
+        } catch (TelegramApiException e){
+
+            log.error("Error occurred: " + e.getMessage());
+        }
+    }
 }
+
 
