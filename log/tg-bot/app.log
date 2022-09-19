@@ -1,199 +1,39 @@
-2022-09-18 00:22:38,152 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:22:38,452 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:22:38,475 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:23:09,570 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 3632 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:23:09,573 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:23:10,593 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:23:10,765 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 127 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:23:11,563 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:23:11,873 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:23:12,531 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:23:12,760 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:23:13,012 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:23:13,050 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:23:14,338 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:23:14,346 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:23:16,812 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:23:17,493 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 8.817 seconds (JVM running for 14.351)
-2022-09-18 00:23:51,615 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 00:25:47,346 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:25:47,350 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:25:47,359 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:25:59,550 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 4456 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:25:59,554 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:26:00,242 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:26:00,307 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:26:00,779 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:26:00,824 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:26:01,049 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:26:01,180 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:26:01,435 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:26:01,450 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:26:02,274 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:26:02,295 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:26:03,426 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:26:04,123 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 5.285 seconds (JVM running for 7.616)
-2022-09-18 00:26:21,032 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 00:26:25,753 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 00:31:56,377 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 00:33:12,074 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:33:12,079 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:33:12,094 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:33:24,824 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 11000 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:33:24,829 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:33:25,880 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:33:25,933 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:33:26,361 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:33:26,408 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:33:26,579 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:33:26,672 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:33:26,824 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:33:26,836 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:33:27,478 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:33:27,487 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:33:28,316 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:33:28,817 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.842 seconds (JVM running for 6.498)
-2022-09-18 00:33:52,210 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:33:52,215 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:33:52,236 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:34:05,120 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 8588 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:34:05,122 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:34:05,825 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:34:05,890 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:34:06,307 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:34:06,351 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:34:06,502 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:34:06,594 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:34:06,763 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:34:06,777 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:34:07,494 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:34:07,504 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:34:08,330 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:34:08,849 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.312 seconds (JVM running for 5.984)
-2022-09-18 00:34:14,433 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 00:35:14,594 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:35:14,600 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:35:14,613 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:35:28,209 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 636 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:35:28,212 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:35:28,888 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:35:28,952 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:35:29,479 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:35:29,528 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:35:29,699 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:35:29,797 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:35:29,954 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:35:29,965 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:35:30,622 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:35:30,630 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:35:31,420 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:35:32,011 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.548 seconds (JVM running for 6.327)
-2022-09-18 00:46:12,687 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:46:12,690 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:46:12,699 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:46:25,793 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 3876 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:46:25,797 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:46:26,630 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:46:26,683 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:46:27,112 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:46:27,156 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:46:27,307 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:46:27,396 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:46:27,546 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:46:27,557 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:46:28,174 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:46:28,182 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:46:28,982 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:46:29,472 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.385 seconds (JVM running for 5.985)
-2022-09-18 00:53:22,748 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:53:22,753 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 00:53:22,763 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 00:59:27,301 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 3872 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 00:59:27,304 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 00:59:27,911 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 00:59:27,964 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interfaces.
-2022-09-18 00:59:28,389 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 00:59:28,431 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 00:59:28,582 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 00:59:28,671 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 00:59:28,856 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 00:59:28,873 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 00:59:29,628 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 00:59:29,638 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 00:59:30,600 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 00:59:31,185 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.599 seconds (JVM running for 6.393)
-2022-09-18 01:17:34,890 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 01:17:34,923 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 01:17:35,188 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 01:17:54,534 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 5792 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 01:17:54,537 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 01:17:55,569 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 01:17:55,711 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 122 ms. Found 1 JPA repository interfaces.
-2022-09-18 01:17:56,417 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 01:17:56,605 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 01:17:57,100 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 01:17:57,239 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 01:17:57,541 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 01:17:57,588 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 01:17:58,793 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 01:17:58,801 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 01:18:01,277 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 01:18:01,815 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 8.144 seconds (JVM running for 11.878)
-2022-09-18 01:18:34,859 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 01:30:10,441 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 01:30:10,445 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 01:30:10,456 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 20:41:04,142 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 13636 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 20:41:04,178 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 20:41:06,280 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 20:41:06,784 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 408 ms. Found 1 JPA repository interfaces.
-2022-09-18 20:41:08,151 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 20:41:08,475 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 20:41:09,077 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 20:41:09,503 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 20:41:10,351 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 20:41:10,395 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 20:41:12,841 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 20:41:12,856 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 20:41:16,004 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 20:41:17,158 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 14.502 seconds (JVM running for 20.778)
-2022-09-18 20:41:18,494 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 21:58:26,889 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 21:58:27,741 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 21:58:27,820 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 21:59:18,230 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 6204 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 21:59:18,233 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 21:59:18,931 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 21:59:19,087 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 142 ms. Found 1 JPA repository interfaces.
-2022-09-18 21:59:20,109 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 21:59:20,280 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 21:59:20,848 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 21:59:21,063 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 21:59:21,439 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 21:59:21,478 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 21:59:22,805 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 21:59:22,813 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 21:59:24,876 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 21:59:25,633 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 7.997 seconds (JVM running for 13.868)
-2022-09-18 21:59:33,897 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 22:03:28,273 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 22:03:28,276 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 22:03:28,285 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-09-18 22:20:50,816 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 15052 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
-2022-09-18 22:20:50,820 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-09-18 22:20:51,469 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-09-18 22:20:51,581 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 102 ms. Found 1 JPA repository interfaces.
-2022-09-18 22:20:52,162 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-09-18 22:20:52,208 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-09-18 22:20:52,373 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-09-18 22:20:52,500 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2022-09-18 22:20:52,654 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2022-09-18 22:20:52,665 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-09-18 22:20:53,341 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-09-18 22:20:53,352 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 22:20:54,271 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
-2022-09-18 22:20:55,154 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.899 seconds (JVM running for 6.437)
-2022-09-18 22:21:07,920 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
-2022-09-18 22:23:55,612 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-09-18 22:23:55,638 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-09-18 22:23:55,723 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-09-20 00:00:52,742 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-20 00:00:52,757 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-09-20 00:00:52,764 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-09-20 00:01:07,238 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Starting RubberPavementCalcBotApplication using Java 17.0.1 on DESKTOP-0PVL8QE with PID 1340 (D:\RubberPavementCalc\target\classes started by 14157 in D:\RubberPavementCalc)
+2022-09-20 00:01:07,242 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-09-20 00:01:08,014 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-20 00:01:08,068 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interfaces.
+2022-09-20 00:01:08,500 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-20 00:01:08,546 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-20 00:01:08,709 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-20 00:01:08,803 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-09-20 00:01:08,963 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-09-20 00:01:08,975 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-20 00:01:09,591 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-20 00:01:09,599 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-20 00:01:10,490 ERROR com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [main] Error setting bot`s command list: Error sending commands: [400] Bad Request: BOT_COMMAND_INVALID
+2022-09-20 00:01:11,013 INFO com.rpcb.rubberpavementcalcbot.RubberPavementCalcBotApplication [main] Started RubberPavementCalcBotApplication in 4.497 seconds (JVM running for 6.531)
+2022-09-20 00:01:15,822 INFO com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot [RubberPavementCalc_bot Telegram Executor] Raplied to user Sergey
+2022-09-20 00:01:41,094 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [RubberPavementCalc_bot Telegram Executor] Cannot invoke "org.telegram.telegrambots.meta.api.objects.Message.getText()" because "message" is null
+java.lang.NullPointerException: Cannot invoke "org.telegram.telegrambots.meta.api.objects.Message.getText()" because "message" is null
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.handlerMessageText(RubberPavementCalcBot.java:108)
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.calcCover(RubberPavementCalcBot.java:138)
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.handlerCallback(RubberPavementCalcBot.java:123)
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.onUpdateReceived(RubberPavementCalcBot.java:60)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2022-09-20 00:05:03,636 ERROR org.telegram.telegrambots.updatesreceivers.DefaultBotSession [RubberPavementCalc_bot Telegram Executor] Cannot invoke "org.telegram.telegrambots.meta.api.objects.Message.getText()" because "message" is null
+java.lang.NullPointerException: Cannot invoke "org.telegram.telegrambots.meta.api.objects.Message.getText()" because "message" is null
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.handlerMessageText(RubberPavementCalcBot.java:108)
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.calcCover(RubberPavementCalcBot.java:138)
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.handlerCallback(RubberPavementCalcBot.java:123)
+	at com.rpcb.rubberpavementcalcbot.service.RubberPavementCalcBot.onUpdateReceived(RubberPavementCalcBot.java:60)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:317)
+2022-09-20 00:53:22,694 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-20 00:53:22,793 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-09-20 00:53:22,814 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

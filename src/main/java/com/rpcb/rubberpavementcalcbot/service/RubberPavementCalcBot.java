@@ -19,7 +19,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
-import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 
 import java.sql.Timestamp;
@@ -53,13 +52,24 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
 
         if(update.hasMessage() && update.getMessage().hasText()){
-            String messageText = update.getMessage().getText();
-            long chatId = update.getMessage().getChatId();
 
-            switch (messageText){
+            handlerMessage(update.getMessage());
+
+        }else if(update.hasCallbackQuery()){
+
+            handlerCallback(update);
+        }
+    }
+
+    private void handlerMessage(Message  message) {
+
+        long chatId = message.getChatId();
+
+        if(message.hasText() && message.hasEntities()){
+             switch (message.getText()){
                 case "/start":
-                    registeredUser(update.getMessage(), update.getMessage().getChat().getFirstName());
-                    startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
+                    registeredUser(message, message.getChat().getFirstName());
+                    startCommandReceived(chatId, message.getChat().getFirstName());
                     break;
 
                 case "/help":
@@ -88,18 +98,31 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
                 default: sendMessage(chatId, "Sorry, command was not recognized.");
             }
-        }else if(update.hasCallbackQuery()){
-            String callbackMethod = update.getCallbackQuery().getData();
-            if(callbackMethod.equals(BINDER) || callbackMethod.equals(EPDM) || callbackMethod.equals(CSBR) ){
-                callbackPrice(update);
-            }else if(callbackMethod.equals(COVER_STANDART)
-                    || callbackMethod.equals(COVER_SENDVICH_STANDART)
-                    || callbackMethod.equals(COVER_EPDM)
-                    || callbackMethod.equals(COVER_SENDVICH_EPDM)
-                    || callbackMethod.equals(COVER_SPRAY)
-                    || callbackMethod.equals(COVER_TERRA)){
-                calcCover(update);
-            }
+        }else{
+            handlerMessageText(message);
+        }
+
+    }
+
+    private String handlerMessageText(Message message) {
+        return message.getText();
+    }
+
+    private void handlerCallback(Update update){
+
+        String callbackMethod = update.getCallbackQuery().getData();
+
+        if(callbackMethod.equals(BINDER)
+                || callbackMethod.equals(EPDM)
+                || callbackMethod.equals(CSBR) ){
+            callbackPrice(update);
+        }else if(callbackMethod.equals(COVER_STANDART)
+                || callbackMethod.equals(COVER_SENDVICH_STANDART)
+                || callbackMethod.equals(COVER_EPDM)
+                || callbackMethod.equals(COVER_SENDVICH_EPDM)
+                || callbackMethod.equals(COVER_SPRAY)
+                || callbackMethod.equals(COVER_TERRA)){
+            calcCover(update);
         }
     }
 
@@ -113,6 +136,16 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
         message.setChatId(String.valueOf(chatId));
 
         executeMet(message);
+
+//
+//        String answer = handlerMessageText(update.getMessage());
+//
+//        SendMessage message2 = new SendMessage();
+//        message2.setText(answer);
+//        message2.setChatId(String.valueOf(chatId));
+//
+//        executeMet(message2);
+
 
     }
 
