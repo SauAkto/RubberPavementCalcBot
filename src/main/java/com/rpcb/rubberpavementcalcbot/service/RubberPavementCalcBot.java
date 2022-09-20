@@ -33,6 +33,8 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
     final BotConfig config;
 
+    int status;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -51,13 +53,15 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
 
-        if(update.hasMessage() && update.getMessage().hasText()){
+        if(update.hasMessage() && update.getMessage().hasEntities()){
 
             handlerMessage(update.getMessage());
 
         }else if(update.hasCallbackQuery()){
 
             handlerCallback(update);
+        }else{
+            handlerMessageText(update.getMessage());
         }
     }
 
@@ -98,14 +102,34 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
 
                 default: sendMessage(chatId, "Sorry, command was not recognized.");
             }
-        }else{
-            handlerMessageText(message);
         }
+
 
     }
 
-    private String handlerMessageText(Message message) {
-        return message.getText();
+    double coverParam[];
+
+    long mesIdStatus;
+
+    private void handlerMessageText(Message message) {
+
+        double result;
+        long chatId = message.getChatId();
+        long mesId = message.getMessageId();
+
+        if(status == 1){
+            coverParam[(int) mesId] = Double.valueOf(message.getText());
+            if(mesId != mesIdStatus){
+                result = coverParam[(int)mesIdStatus] * coverParam[(int) mesId];
+                SendMessage message1 = new SendMessage();
+                message1.setChatId(String.valueOf(chatId));
+                message1.setText("Стоимость площадки: " + result);
+                System.out.println(result); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                executeMet(message1);
+            }
+            mesIdStatus = mesId;
+        }
+
     }
 
     private void handlerCallback(Update update){
@@ -122,6 +146,20 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
                 || callbackMethod.equals(COVER_SENDVICH_EPDM)
                 || callbackMethod.equals(COVER_SPRAY)
                 || callbackMethod.equals(COVER_TERRA)){
+
+            if(callbackMethod.equals(COVER_STANDART)){
+                status = 1;
+            }else if(callbackMethod.equals(COVER_SENDVICH_STANDART)){
+                status = 2;
+            }else if(callbackMethod.equals(COVER_EPDM)){
+                status = 3;
+            }else if(callbackMethod.equals(COVER_SENDVICH_EPDM)){
+                status = 4;
+            }else if(callbackMethod.equals(COVER_SPRAY)){
+                status = 5;
+            }else if(callbackMethod.equals(COVER_TERRA)){
+                status = 6;
+            }
             calcCover(update);
         }
     }
@@ -132,21 +170,12 @@ public class RubberPavementCalcBot extends TelegramLongPollingBot {
         long chatId = update.getCallbackQuery().getMessage().getChatId();
 
         SendMessage message = new SendMessage();
-        message.setText("Set message:");
         message.setChatId(String.valueOf(chatId));
+        message.setText("для расчета стоимости покрытия/n/n"
+        +"последовательно введите:/n/n"
+        +"площадь покрытия, толщину покрытия");
 
         executeMet(message);
-
-//
-//        String answer = handlerMessageText(update.getMessage());
-//
-//        SendMessage message2 = new SendMessage();
-//        message2.setText(answer);
-//        message2.setChatId(String.valueOf(chatId));
-//
-//        executeMet(message2);
-
-
     }
 
     private void calcPavment(long chatId) {
